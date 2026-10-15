@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VELORA — Discover Your Everyday Essentials</title>
+  <meta name="description" content="VELORA is a demo online store with fashion, electronics, home and accessories. Frontend portfolio project.">
+  <meta name="theme-color" content="#faf8f5">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+  <a class="skip-link" href="#shop">Skip to products</a>
+
+  <!-- ===== Announcement bar ===== -->
+  <div class="announcement" role="region" aria-label="Promotion">
+    <p class="mb-0">
+      <i class="bi bi-truck me-1" aria-hidden="true"></i>
+      Free shipping on orders over $100 &nbsp;·&nbsp; Use the sale filter for up to 30% off
+    </p>
+  </div>
+
+  <!-- ===== Navbar ===== -->
+  <header class="site-header" id="siteHeader">
+    <nav class="navbar navbar-expand-lg" aria-label="Main navigation">
+      <div class="container">
+        <button class="navbar-toggler border-0 shadow-none px-1" type="button"
+                data-bs-toggle="collapse" data-bs-target="#mainNav"
+                aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation menu">
+          <i class="bi bi-list fs-2" aria-hidden="true"></i>
+        </button>
+
+        <a class="navbar-brand brand" href="#top" aria-label="VELORA home">VELORA<span class="brand-dot">.</span></a>
+
+        <div class="nav-actions order-lg-3">
+          <button class="icon-btn" id="searchToggle" type="button" aria-label="Search products"
+                  aria-expanded="false" aria-controls="searchBar">
+            <i class="bi bi-search" aria-hidden="true"></i>
+          </button>
+          <button class="icon-btn" id="wishlistNavBtn" type="button" data-action="show-wishlist" aria-label="View wishlist">
+            <i class="bi bi-heart" aria-hidden="true"></i>
+            <span class="count-badge" id="wishlistBadge" hidden>0</span>
+          </button>
+          <button class="icon-btn" id="cartToggle" type="button" data-bs-toggle="offcanvas"
+                  data-bs-target="#cartDrawer" aria-controls="cartDrawer" aria-label="Open cart">
+            <i class="bi bi-bag" aria-hidden="true"></i>
+            <span class="count-badge" id="cartBadge" aria-live="polite" hidden>0</span>
+          </button>
+        </div>
+
+        <div class="collapse navbar-collapse order-lg-2 justify-content-lg-center" id="mainNav">
+          <ul class="navbar-nav gap-lg-4">
+            <li class="nav-item"><a class="nav-link" href="#shop" data-action="show-all">Shop</a></li>
+            <li class="nav-item"><a class="nav-link" href="#categories">Categories</a></li>
+            <li class="nav-item"><a class="nav-link" href="#featured">Collection</a></li>
+            <li class="nav-item"><a class="nav-link nav-link-sale" href="#shop" data-action="shop-sale">Sale</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Search bar (toggled by the search icon) -->
+    <div class="search-bar" id="searchBar" hidden>
+      <div class="container">
+        <form class="search-form" id="searchForm" role="search" novalidate>
+          <label class="visually-hidden" for="searchInput">Search products by name</label>
+          <i class="bi bi-search" aria-hidden="true"></i>
+          <input type="search" id="searchInput" class="form-control" placeholder="Search products, e.g. “watch”, “lamp”…" autocomplete="off">
+          <button type="button" class="btn-link-plain" id="searchClose" aria-label="Close search">
+            <i class="bi bi-x-lg" aria-hidden="true"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ===== Hero ===== -->
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6 hero-copy">
+            <p class="eyebrow hero-anim" style="--d:0ms">New season · Autumn 2026</p>
+            <h1 id="heroTitle" class="hero-title hero-anim" style="--d:80ms">Discover Your <em>Everyday</em> Essentials.</h1>
+            <p class="hero-text hero-anim" style="--d:160ms">
+              Thoughtfully made pieces for your wardrobe, desk and home. Quality you can feel,
+              designs that outlast trends.
+            </p>
+            <div class="d-flex flex-wrap gap-3 hero-anim" style="--d:240ms">
+              <a href="#shop" class="btn btn-accent btn-lg">Shop Collection <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i></a>
+              <a href="#categories" class="btn btn-outline-dark btn-lg rounded-pill px-4">Browse categories</a>
+            </div>
+            <ul class="hero-stats list-unstyled hero-anim" style="--d:320ms">
+              <li><strong>24</strong><span>Curated products</span></li>
+              <li><strong>4.5★</strong><span>Average rating</span></li>
+              <li><strong>30 days</strong><span>Easy returns</span></li>
+            </ul>
+          </div>
+          <div class="col-lg-6">
+            <div class="hero-visual hero-anim" style="--d:200ms">
+              <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1000&q=80"
+                   alt="Woman in a neutral-toned outfit holding shopping bags" width="1000" height="1200" fetchpriority="high">
+              <div class="hero-card" aria-hidden="true">
+                <i class="bi bi-stars"></i>
+                <div><strong>New arrivals</strong><span>Fresh this week</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Categories ===== -->
+    <section class="section" id="categories" aria-labelledby="catTitle">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">Shop by category</p>
+          <h2 id="catTitle">Find what you’re looking for</h2>
+        </header>
+        <div class="row g-3 g-lg-4" id="categoryGrid"></div>
+      </div>
+    </section>
+
+    <!-- ===== Catalogue ===== -->
+    <section class="section section-tint" id="shop" aria-labelledby="shopTitle">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">The catalogue</p>
+          <h2 id="shopTitle">All products</h2>
+        </header>
+
+        <div class="row g-4">
+          <!-- Filters: static sidebar on lg+, off-canvas drawer below -->
+          <div class="col-lg-3">
+            <aside class="offcanvas-lg offcanvas-start filter-panel" tabindex="-1" id="filterPanel" aria-labelledby="filterTitle">
+              <div class="offcanvas-header">
+                <h3 class="offcanvas-title h5" id="filterTitle">Filters</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#filterPanel" aria-label="Close filters"></button>
+              </div>
+              <div class="offcanvas-body d-flex flex-column">
+                <div class="filter-scroll">
+                  <div class="d-none d-lg-flex justify-content-between align-items-center mb-3">
+                    <h3 class="h6 text-uppercase fw-bold mb-0 filter-heading">Filters</h3>
+                    <button type="button" class="btn-link-plain small" data-action="clear-filters">Clear all</button>
+                  </div>
+
+                  <fieldset class="filter-group">
+                    <legend>Category</legend>
+                    <div id="categoryFilters"></div>
+                  </fieldset>
+
+                  <fieldset class="filter-group">
+                    <legend>Price range</legend>
+                    <div class="price-inputs">
+                      <div>
+                        <label class="visually-hidden" for="minPrice">Minimum price</label>
+                        <div class="input-group">
+                          <span class="input-group-text">$</span>
+                          <input type="number" class="form-control" id="minPrice" placeholder="Min" min="0" inputmode="numeric">
+                        </div>
+                      </div>
+                      <span class="price-dash" aria-hidden="true">–</span>
+                      <div>
+                        <label class="visually-hidden" for="maxPrice">Maximum price</label>
+                        <div class="input-group">
+                          <span class="input-group-text">$</span>
+                          <input type="number" class="form-control" id="maxPrice" placeholder="Max" min="0" inputmode="numeric">
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+
+                  <fieldset class="filter-group">
+                    <legend>Minimum rating</legend>
+                    <div id="ratingFilters"></div>
+                  </fieldset>
+
+                  <fieldset class="filter-group">
+                    <legend>More</legend>
+                    <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" role="switch" id="onSale">
+                      <label class="form-check-label" for="onSale">On sale only</label>
+                    </div>
+                    <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" role="switch" id="wishlistOnly">
+                      <label class="form-check-label" for="wishlistOnly">Wishlist only</label>
+                    </div>
+                  </fieldset>
+                </div>
+
+                <div class="filter-footer d-lg-none">
+                  <button type="button" class="btn btn-outline-dark rounded-pill" data-action="clear-filters">Clear all</button>
+                  <button type="button" class="btn btn-accent flex-grow-1" data-bs-dismiss="offcanvas" data-bs-target="#filterPanel">
+                    Show <span id="drawerCount">0</span> results
+                  </button>
+                </div>
+              </div>
+            </aside>
+          </div>
+
+          <!-- Results -->
+          <div class="col-lg-9">
+            <div class="toolbar">
+              <button class="btn btn-outline-dark rounded-pill d-lg-none" type="button"
+                      data-bs-toggle="offcanvas" data-bs-target="#filterPanel" aria-controls="filterPanel">
+                <i class="bi bi-sliders2 me-1" aria-hidden="true"></i> Filters
+                <span class="filter-dot" id="filterDot" hidden></span>
+              </button>
+              <p class="result-count mb-0" id="resultCount" role="status" aria-live="polite">Loading products…</p>
+              <div class="sort-wrap">
+                <label for="sortSelect" class="visually-hidden">Sort products</label>
+                <i class="bi bi-arrow-down-up" aria-hidden="true"></i>
+                <select id="sortSelect" class="form-select">
+                  <option value="featured">Sort: Featured</option>
+                  <option value="price-asc">Price: Low to High</option>
+                  <option value="price-desc">Price: High to Low</option>
+                  <option value="rating">Top Rated</option>
+                  <option value="newest">Newest</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="active-filters" id="activeFilters" aria-label="Active filters"></div>
+
+            <div class="row g-3 g-lg-4 product-grid" id="productGrid" aria-busy="true"></div>
+
+            <div class="empty-state" id="noResults" hidden>
+              <div class="empty-icon"><i class="bi bi-search-heart" aria-hidden="true"></i></div>
+              <h3>No products match your filters</h3>
+              <p>Try a different search term, widen the price range or remove a filter.</p>
+              <button type="button" class="btn btn-accent" data-action="clear-filters">Reset all filters</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Featured collection ===== -->
+    <section class="section" id="featured" aria-labelledby="featTitle">
+      <div class="container">
+        <header class="section-head reveal d-flex flex-wrap justify-content-between align-items-end gap-3">
+          <div>
+            <p class="eyebrow">Featured collection</p>
+            <h2 id="featTitle">Customer favourites</h2>
+          </div>
+          <a href="#shop" class="link-arrow" data-action="show-all">View all products <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+        </header>
+        <div class="row g-3 g-lg-4" id="featuredGrid"></div>
+      </div>
+    </section>
+
+    <!-- ===== Promo banner ===== -->
+    <section class="container pb-5" aria-labelledby="promoTitle">
+      <div class="promo reveal">
+        <div class="promo-copy">
+          <p class="eyebrow eyebrow-light">Limited time</p>
+          <h2 id="promoTitle">Up to 30% off<br>seasonal picks</h2>
+          <p>Hand-picked savings across every category while stock lasts.</p>
+          <a href="#shop" class="btn btn-light btn-lg rounded-pill px-4" data-action="shop-sale">Shop the sale</a>
+        </div>
+        <div class="promo-shape" aria-hidden="true"><i class="bi bi-tags"></i></div>
+      </div>
+    </section>
+
+    <!-- ===== Benefits ===== -->
+    <section class="section pt-0" id="benefits" aria-label="Shopping benefits">
+      <div class="container">
+        <div class="row g-4 benefits">
+          <div class="col-6 col-lg-3 reveal">
+            <div class="benefit"><i class="bi bi-shield-check" aria-hidden="true"></i><h3>Secure checkout</h3><p>Privacy-first shopping you can trust.</p></div>
+          </div>
+          <div class="col-6 col-lg-3 reveal">
+            <div class="benefit"><i class="bi bi-gem" aria-hidden="true"></i><h3>Quality products</h3><p>Carefully selected, made to last.</p></div>
+          </div>
+          <div class="col-6 col-lg-3 reveal">
+            <div class="benefit"><i class="bi bi-arrow-repeat" aria-hidden="true"></i><h3>Easy returns</h3><p>30 days to change your mind.</p></div>
+          </div>
+          <div class="col-6 col-lg-3 reveal">
+            <div class="benefit"><i class="bi bi-truck" aria-hidden="true"></i><h3>Free shipping</h3><p>On every order over $100.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Newsletter ===== -->
+    <section class="newsletter" id="newsletter" aria-labelledby="nlTitle">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-6 reveal">
+            <p class="eyebrow">Stay in the loop</p>
+            <h2 id="nlTitle">Join the VELORA list</h2>
+            <p class="text-muted">Be first to hear about new arrivals and offers. No spam, unsubscribe any time.</p>
+            <form id="newsletterForm" class="newsletter-form" novalidate>
+              <div class="newsletter-row">
+                <label class="visually-hidden" for="newsletterEmail">Email address</label>
+                <input type="email" class="form-control" id="newsletterEmail" placeholder="you@example.com"
+                       autocomplete="email" aria-describedby="newsletterFeedback" required>
+                <button type="submit" class="btn btn-accent">Subscribe</button>
+              </div>
+              <p class="newsletter-feedback" id="newsletterFeedback" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4 pb-4">
+        <div class="col-lg-4">
+          <a class="brand brand-light" href="#top">VELORA<span class="brand-dot">.</span></a>
+          <p class="footer-about">A demo storefront built as a frontend portfolio project. Products are sample data and no orders or payments are processed.</p>
+          <div class="socials">
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram (opens in a new tab)"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook (opens in a new tab)"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="X (opens in a new tab)"><i class="bi bi-twitter-x" aria-hidden="true"></i></a>
+            <a href="https://www.pinterest.com" target="_blank" rel="noopener noreferrer" aria-label="Pinterest (opens in a new tab)"><i class="bi bi-pinterest" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2 offset-lg-1">
+          <h3 class="footer-title">Shop</h3>
+          <ul class="footer-links">
+            <li><a href="#shop" data-category="Fashion">Fashion</a></li>
+            <li><a href="#shop" data-category="Electronics">Electronics</a></li>
+            <li><a href="#shop" data-category="Home & Living">Home &amp; Living</a></li>
+            <li><a href="#shop" data-category="Accessories">Accessories</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h3 class="footer-title">Explore</h3>
+          <ul class="footer-links">
+            <li><a href="#shop" data-action="shop-sale">Sale</a></li>
+            <li><a href="#featured">Favourites</a></li>
+            <li><a href="#shop" data-action="show-wishlist">My wishlist</a></li>
+            <li><a href="#benefits">Shipping &amp; returns</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <h3 class="footer-title">Get in touch</h3>
+          <ul class="footer-links">
+            <li><a href="#newsletter">Newsletter</a></li>
+            <li><a href="mailto:hello@example.com">hello@example.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="mb-0">&copy; <span id="year">2026</span> VELORA. Demo project — not a real store.</p>
+        <a href="#top" class="back-top">Back to top <i class="bi bi-arrow-up" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== Cart drawer ===== -->
+  <aside class="offcanvas offcanvas-end cart-drawer" tabindex="-1" id="cartDrawer" aria-labelledby="cartTitle">
+    <div class="offcanvas-header">
+      <h2 class="offcanvas-title h5" id="cartTitle">Your cart <span class="text-muted fw-normal" id="cartHeaderCount"></span></h2>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close cart"></button>
+    </div>
+    <div class="offcanvas-body p-0 d-flex flex-column">
+      <div class="ship-progress" id="shipProgress"></div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-footer" id="cartFooter" hidden>
+        <dl class="totals">
+          <div><dt>Subtotal</dt><dd id="cartSubtotal">$0.00</dd></div>
+          <div><dt>Shipping</dt><dd id="cartShipping">$0.00</dd></div>
+          <div class="grand"><dt>Total</dt><dd id="cartTotal">$0.00</dd></div>
+        </dl>
+        <button type="button" class="btn btn-accent w-100 btn-lg" data-action="checkout">Checkout</button>
+        <button type="button" class="btn-link-plain w-100 mt-2" data-action="clear-cart">Clear cart</button>
+        <p class="demo-note"><i class="bi bi-info-circle me-1" aria-hidden="true"></i>Demo store: no payment is taken and no order is placed.</p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===== Quick view modal ===== -->
+  <div class="modal fade" id="quickViewModal" tabindex="-1" aria-labelledby="qvTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-fullscreen-sm-down">
+      <div class="modal-content" id="quickViewBody"></div>
+    </div>
+  </div>
+
+  <!-- ===== Toasts ===== -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toastContainer" aria-live="polite" aria-atomic="false"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
